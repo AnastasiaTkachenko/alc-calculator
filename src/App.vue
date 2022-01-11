@@ -6,9 +6,10 @@
 
  <div class="container">
 
+
           <!--HEADING -->
    <h1 class="text-center">
-     FANCY DRINKING
+     FANCY <br> DRINKING?
    </h1>
 
 
@@ -23,6 +24,16 @@
   </v-btn>
 
 
+<div class="text">
+   <h2 class="text-center">
+     answer a question and let the universe lead you to the
+   </h2>
+
+   <h2 class="text-center" >
+     🎉  PERFECT DRINK OF THE DAY  🎉
+   </h2>
+</div>
+
 <!--   FOOTER -->
    <v-footer bottom fixed padless>
      <v-col
@@ -32,6 +43,7 @@
        {{ new Date().getFullYear() }} — <strong>Cheeers!</strong>
      </v-col>
    </v-footer>
+
 
 
 
@@ -98,8 +110,22 @@ export default {
 
 }
 
+
 h1 {
+  position: absolute; // for central text we use width:100%; left:0px;
+  top:2em;
+  font-size:4rem;
   font-family: Lato,sans-serif;
+  width:100%; left:0px;
+  letter-spacing: 20px;
+
+}
+
+h2 {
+  font-family: Lato, sans-serif;
+  position: relative; // using for not pushing everything down
+  top: 5em;
+  margin-top:8px;
 
 
 }
