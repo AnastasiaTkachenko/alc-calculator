@@ -1,18 +1,52 @@
 <template>
 
-<v-app>
+  <div id="app">
+
+<v-app id="main">
+
  <div class="container">
-  <v-btn block color="yellow darken-1">
+
+          <!--HEADING -->
+   <h1 class="text-center">
+     FANCY DRINKING
+   </h1>
+
+
+<!--BUTTONS -->
+
+  <v-btn class="button1" block color="yellow darken-1">
     GO TO QUESTIONS
   </v-btn>
 
-  <v-btn block color="yellow darken-1">
+  <v-btn class="button2" block color="yellow darken-1">
     GO TO ALCOHOL CALCULATOR
   </v-btn>
 
 
+<!--   FOOTER -->
+   <v-footer bottom fixed padless>
+     <v-col
+         class="text-center"
+         cols="12"
+     >
+       {{ new Date().getFullYear() }} — <strong>Cheeers!</strong>
+     </v-col>
+   </v-footer>
+
+
+
  </div>
+
+
+
 </v-app>
+
+
+
+
+
+</div>
+
 
 
 
@@ -33,17 +67,40 @@ export default {
     //
   }),
 };
+
+
+
+
 </script>
 
 <style lang="scss">
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
 
 
 .container {
   background-image:url('assets/img/duck.jpg');
   background-repeat: no-repeat;
   background-position: center;
-  width: 100vw;
-  height: 100vh;
+  min-width: 100%;
+  min-height: 100%;
+
+
+
+}
+
+.container .button1 {
+  margin-top: 400px;
+}
+
+.v-btn {
+ margin-top: 20px;
+
+}
+
+h1 {
+  font-family: Lato,sans-serif;
+
 
 }
 
