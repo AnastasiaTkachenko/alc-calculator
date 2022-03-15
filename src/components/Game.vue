@@ -7,28 +7,58 @@
           outlined
           color="yellow lighten-1"
           x-large
-      > MAKE A COCKTAIL FROM WHATEVER YOU HAVE
-
+      > COCKTAILMAKER
       </v-btn>
-
       <v-btn to="/"
              class="ma-2"
              outlined
              color="yellow lighten-1"
              x-large
       > MAIN
-
       </v-btn>
 
+  
+    </header>
+
+<div class="divider">
+  <v-divider light >
+  </v-divider>
+</div>
+
+    <h2 class="question">{{ question }}</h2>
+    <div class="buttons">
+      <v-btn
+          rounded
+          x-large
+          elevation="2"
+          @click="nextQuestion(true)" color="yellow lighten-1 mb-4">YES</v-btn>
+      <v-btn rounded
+             x-large
+             elevation="2"
+             @click="nextQuestion(false)" color="yellow lighten-1">NO</v-btn>
 
 
+    </div>
+    <div class="recommendation">
+      <p v-if="selectedDrink">{{ answer }}</p>
+      <img class="photoCocktail" v-if="selectedDrink" :src="selectedDrink.strDrinkThumb"/>
+      <!--;v-if="selectedDrink пишем чтобы оно не высвесиыалсь когда заходишь на станцу так
+      как приписано селекетед дринк нул -
+      v-if= внутри долждно быть условие, если это условие верно, то отобращится таг к оторому
+      в иф приписан, если не верно то не будет тага вообще
+-->
+    </div>
+
+
+
+  <div class="recepie-button">
       <template>
         <div class="text-center">
           <v-bottom-sheet
               v-model="sheet"
               persistent
           >
-            <template v-slot:activator="{ on, attrs }">
+      <template v-slot:activator="{ on, attrs }">
               <v-btn
                   class="ma-2"
                   outlined
@@ -58,59 +88,21 @@
             </v-sheet>
           </v-bottom-sheet>
         </div>
-      </template>
-
-
-    </header>
-<div class="divider">
-  <v-divider light >
-
-  </v-divider>
-
-</div>
-
-    <h2 class="question">{{ question }}</h2>
-    <div class="buttons">
-      <v-btn
-          rounded
-          x-large
-          elevation="2"
-          @click="nextQuestion(true)" color="yellow lighten-1 mb-4">YES</v-btn>
-      <v-btn rounded
-             x-large
-             elevation="2"
-             @click="nextQuestion(false)" color="yellow lighten-1">NO</v-btn>
-
-
-    </div>
-    <div class="recommendation">
-      <p v-if="selectedDrink">{{ answer }}</p>
-      <img class="photoCocktail" v-if="selectedDrink" :src="selectedDrink.strDrinkThumb"/>
-      <!--;v-if="selectedDrink пишем чтобы оно не высвесиыалсь когда заходишь на станцу так
-      как приписано селекетед дринк нул -
-      v-if= внутри долждно быть условие, если это условие верно, то отобращится таг к оторому
-      в иф приписан, если не верно то не будет тага вообще
--->
-    </div>
-
-
-    <v-footer bottom fixed padless>
-      <v-col
-          class="text-center"
-          cols="12"
-      >
-        {{ new Date().getFullYear() }} — <strong>Cheeers!</strong>
-      </v-col>
-    </v-footer>
-
-  </div>
+      </template> 
+      </div>
+     <Footer/>
+      </div>
 
 
 </template>
 
 <script>
+import Footer from "@/components/Footer";
 export default {
   name: 'Game',
+  components : {
+  Footer,
+  },
   data() {
     return {
       questions: ['Are you in a happy mood?',
@@ -169,18 +161,20 @@ export default {
 
 header {
   display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
-  height: 100px;
+  flex-direction: column;
+  justify-content: center;
+ 
   @media (min-width: 768px) {
-    height: 200px;
+    width:100%;
+    flex-direction: row;
+    height: 100px;
+
   }
   @media (min-width: 1024px) {
-    height: 300px;
+   height: 200px;
   }
-}
-
+}  
 
 
 .question {
@@ -208,7 +202,7 @@ header {
 
   .v-btn {
     padding: 1.5rem;
-    width: 90%;
+    width: 70%;
     margin: 0 auto;
     @media (min-width: 768px) {
       width: 35%;
@@ -220,6 +214,30 @@ header {
     }
   }
 }
+
+.divider {
+  display:none; 
+  @media (min-width: 1024px) {
+    display: block;
+  }
+}
+header .v-btn {
+
+
+@media (min-width: 1024px) {
+  width:400px;
+  margin: auto 25px !important;
+}
+
+}
+
+header {
+  padding: 50px 0px;
+  @media (min-width: 1024px) {
+  padding: 0px;
+  }
+}
+
 
 
 .recommendation {
@@ -250,5 +268,14 @@ header {
 .divider {
   margin-bottom: 80px;
  background-color: #9e9e9e;
+}
+
+
+.recepie-button .v-btn{
+width:90%;
+  @media (min-width: 1024px) {
+  margin:50px; 
+  width: 400px;
+  }
 }
 </style>

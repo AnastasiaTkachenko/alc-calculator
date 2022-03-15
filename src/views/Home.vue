@@ -34,23 +34,13 @@
             rounded
             elevation="2"
             to="/cocktailCreator" class="button2" block color="yellow darken-1">
-          MAKE A COCKTAIL FROM WHATEVER YOU HAVE
+          COCKTAILMAKER
         </v-btn>
 
-
-
-
-        <!--   FOOTER -->
-        <v-footer bottom fixed padless>
-          <v-col
-              class="text-center"
-              cols="12"
-          >
-            {{ new Date().getFullYear() }} — <strong>Cheeers!</strong>
-          </v-col>
-        </v-footer>
+    <Footer/>
 
       </div>
+
 
 
     </v-app>
@@ -62,10 +52,12 @@
 
 <script>
 
+import Footer from "@/components/Footer";
 export default {
-  name: 'App',
 
-  components: {
+  name: 'Home',
+
+  components: { Footer,
 
   },
 
